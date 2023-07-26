@@ -5,7 +5,7 @@ import "@/styles/globals.scss";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Title to change",
+  title: "Online recipes",
   description: "Learning NextJS project",
 };
 
