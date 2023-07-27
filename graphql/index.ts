@@ -96,6 +96,34 @@ query getRecipes($category: String, $endCursor: String) {
 }
 `;
 
+export const RecipesQueryByTitle = `
+query getRecipes($title: String, $endCursor: String) {
+  recipeSearch(first: 8, after: $endCursor, filter: {title: {regex: $title}}) {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+    edges {
+      node {
+        title
+        description
+        id
+        image
+        category
+        createdBy {
+          id
+          email
+          name
+          avatarUrl
+        }
+      }
+    }
+  }
+}
+`;
+
 export const getRecipeByIdQuery = `
 query GetRecipeById($id: ID!) {
   recipe(by: { id: $id }) {

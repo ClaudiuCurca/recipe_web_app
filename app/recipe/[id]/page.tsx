@@ -27,7 +27,9 @@ const RecipeDetails = async ({
           alt="recipe image"
           className="self-center"
         />
-        <RecipeCreatorActions recipeId={recipe.id} />
+        {session?.user?.id === recipe.createdBy.id && (
+          <RecipeCreatorActions recipeId={recipe.id} />
+        )}
         <h1 className="mt-10 text-xl sm:text-2xl">{recipe.title}</h1>
         <Link href={`/profile/${recipe.createdBy.id}`}>
           {" "}

@@ -2,7 +2,7 @@ import { RecipeInterface } from "@/common.types";
 import Categories from "@/components/Categories";
 import LoadMore from "@/components/LoadMore";
 import RecipeCard from "@/components/RecipeCard";
-import { fetchAllRecipes } from "@/lib/actions";
+import { fetchAllRecipes, fetchRecipesByTitle } from "@/lib/actions";
 import React from "react";
 
 type RecipeSearch = {
@@ -18,15 +18,28 @@ type RecipeSearch = {
 };
 
 type Props = {
-  searchParams: { category?: string | null; endcursor?: string };
+  searchParams: {
+    category?: string | null;
+    endcursor?: string;
+    searchTerm?: string | null;
+  };
 };
 
 export const dynamic = "force-dynamic";
 export const dynamicParams = true;
 export const revalidate = 0;
 
-const Home = async ({ searchParams: { category, endcursor } }: Props) => {
-  const data = (await fetchAllRecipes(category, endcursor)) as RecipeSearch;
+const Home = async ({
+  searchParams: { category, endcursor, searchTerm },
+}: Props) => {
+  // for category search
+
+  let data;
+  if (!searchTerm) {
+    data = (await fetchAllRecipes(category, endcursor)) as RecipeSearch;
+  } else {
+    data = (await fetchRecipesByTitle(searchTerm, endcursor)) as RecipeSearch;
+  }
 
   const recipes = data?.recipeSearch?.edges || [];
 

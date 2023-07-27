@@ -20,7 +20,7 @@ const RelatedRecipes = async ({ userId, recipeId }: Props) => {
   }
 
   return (
-    <section className="p-5 border border-t-orange-400">
+    <section className="p-5 border border-t-orange-300">
       <h2 className="text-xl mb-5">Other recipes by {result.user?.name}</h2>
       <div className="flex justify-center flex-wrap gap-5">
         {filteredRecipes?.map(({ node }) => (

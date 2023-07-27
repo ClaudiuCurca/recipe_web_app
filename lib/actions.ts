@@ -2,6 +2,7 @@ import { RecipeForm } from "@/common.types";
 import {
   RecipesQuery,
   RecipesQueryByCategory,
+  RecipesQueryByTitle,
   createRecipeMutation,
   createUserMutation,
   deleteRecipeMutation,
@@ -112,6 +113,17 @@ export const fetchAllRecipes = async (
   } else {
     return makeGraphQLRequest(RecipesQuery, { endCursor });
   }
+};
+
+export const fetchRecipesByTitle = async (
+  searchTerm: string,
+  endCursor?: string
+) => {
+  client.setHeader("x-api-key", apiKey);
+
+  const title = `(?i).*${searchTerm}.*`;
+
+  return makeGraphQLRequest(RecipesQueryByTitle, { title, endCursor });
 };
 
 export const getUserRecipes = async (id: string, last: number) => {

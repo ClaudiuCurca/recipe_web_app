@@ -17,7 +17,7 @@ const Categories = () => {
 
   return (
     <div className="flex justify-between w-full gap-5 flex-wrap">
-      <ul className="flex gap-2 p-2 overflow-auto categories_list">
+      <ul className="flex gap-2 p-2 overflow-auto categories_list border border-b-orange-300 w-full">
         {categories.map((filter) => (
           <button
             key={filter}

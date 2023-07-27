@@ -27,12 +27,13 @@ const AuthProviders = () => {
     fetchProviders();
   }, []);
 
+  // i only have one provider: google this is why I Say only 'Sign in'
   if (providers) {
     return (
       <div>
         {Object.values(providers).map((p: Provider, i) => (
-          <button key={i} onClick={() => signIn(p?.id)}>
-            {p.name}
+          <button key={i} onClick={() => signIn(p?.id)} className="text-white">
+            Sign in
           </button>
         ))}
       </div>

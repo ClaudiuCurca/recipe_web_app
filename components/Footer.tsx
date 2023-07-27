@@ -12,7 +12,7 @@ const FooterColumn = ({ title, links }: ColumnProps) => (
     <h4 className="font-semibold"> {title}</h4>
     <ul className="flex flex-col gap-2 font-normal">
       {links.map((link) => (
-        <Link href="/" key={link}>
+        <Link href="/" key={link} className="w-fit">
           {link}
         </Link>
       ))}
@@ -22,7 +22,7 @@ const FooterColumn = ({ title, links }: ColumnProps) => (
 
 const Footer = () => {
   return (
-    <footer className="flex justify-start flex-col paddings w-full gap-20 border bg-white border-t-orange-200">
+    <footer className="flex justify-start flex-col paddings w-full gap-20 border bg-slate-50 border-t-orange-300">
       <div className="flex flex-col gap-12 w-full">
         <div className="flex items-start flex-col">
           <p className="text-start text-sm font-normal mt-5 max-w-xs"></p>

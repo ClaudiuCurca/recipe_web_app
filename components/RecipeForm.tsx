@@ -141,8 +141,8 @@ const RecipeForm = ({ session, type, recipe }: Props) => {
       />
       <button
         type="submit"
-        className={`mt-5 px-5 py-1 text-lg capitalize bg-orange-500 self-center 
-        rounded-md text-white hover:bg-orange-300 duration-200 disabled:bg-orange-300 disabled:pointer-events-none`}
+        className={`mt-5 px-5 py-1 text-lg capitalize bg-orange-300 self-center 
+        rounded-md text-white hover:bg-orange-200 duration-200 disabled:bg-orange-200 disabled:pointer-events-none`}
         disabled={isSubmitting}
       >
         {isSubmitting

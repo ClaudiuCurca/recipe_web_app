@@ -19,7 +19,7 @@ const User = g
 // @ts-ignore
 const Recipe = g
   .model("Recipe", {
-    title: g.string().length({ min: 2, max: 20 }),
+    title: g.string().length({ min: 2, max: 20 }).search(),
     description: g.string().length({ min: 10 }),
     image: g.url(),
     category: g.string().search(),
