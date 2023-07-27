@@ -38,7 +38,7 @@ export const dynamicParams = true;
 export const revalidate = 0;
 
 const Home = ({ searchParams: { category, endcursor, searchTerm } }: Props) => {
-  const [recipes, setRecipes] = useState<{ node: RecipeInterface }[]>([]);
+  const [recipes, setRecipes] = useState<{ node: RecipeInterface }[]>();
 
   const [pagination, setPagination] = useState<PaginationInterface | undefined>(
     undefined
@@ -64,7 +64,11 @@ const Home = ({ searchParams: { category, endcursor, searchTerm } }: Props) => {
         if (endcursor && prevEndCursor !== endcursor) {
           const newRecipes = data?.recipeSearch?.edges || [];
 
-          setRecipes([...recipes, ...newRecipes]);
+          if (recipes) {
+            setRecipes([...recipes, ...newRecipes]);
+          } else {
+            setRecipes(recipes);
+          }
 
           const pagination = data?.recipeSearch?.pageInfo;
           setPagination(pagination);
