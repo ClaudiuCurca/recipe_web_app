@@ -4,6 +4,7 @@ cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
   api_key: process.env.CLOUDINARY_KEY,
   api_secret: process.env.CLOUDINARY_SECRET,
+  auto_quality: "auto",
 });
 
 export async function POST(req: Request) {
@@ -27,6 +28,7 @@ export async function POST(req: Request) {
           width: 1000,
           height: 752,
           crop: "scale",
+          quality: 90,
         },
       ],
     };

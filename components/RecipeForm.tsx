@@ -56,11 +56,10 @@ const RecipeForm = ({ session, type, recipe }: Props) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    //error handling
     if (form.category === "") {
       setCagetoryError(true);
+    } else {
     }
-
     setIsSubmitting(true);
 
     const { token } = await fetchToken();
