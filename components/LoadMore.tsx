@@ -35,20 +35,12 @@ const LoadMore = ({
 
   return (
     <div className="flex gap-5 justify-center items-center mb-5">
-      {hasPreviousPage && (
-        <button
-          className="p-2 bg-orange-100 rounded-md mr-2"
-          onClick={() => handleNavigation("first")}
-        >
-          First page
-        </button>
-      )}
       {hasNextPage && (
         <button
           className="p-2 bg-orange-100 rounded-md"
           onClick={() => handleNavigation("next")}
         >
-          Next page
+          Load more
         </button>
       )}
     </div>

@@ -18,7 +18,7 @@ const CustomMenu = ({ title, value, options, onClick, error }: Props) => {
       >
         {title}
       </label>
-      <Menu as="div" className="self-start relative">
+      <Menu as="div" className="self-start relative" suppressHydrationWarning>
         <div className="">
           <Menu.Button
             className={`border flex justify-center items-center gap-4 w-full 

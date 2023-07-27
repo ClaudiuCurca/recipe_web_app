@@ -13,10 +13,11 @@ const ProfileMenu = ({ session }: { session: SessionInterface }) => {
 
   return (
     <div className="flex justify-center z-10 flex-col relative">
-      <Menu as="div">
+      <Menu as="div" suppressHydrationWarning>
         <Menu.Button
           className="flex justify-center"
           onMouseEnter={() => setOpenModal(true)}
+          suppressHydrationWarning
         >
           {session?.user?.image && (
             <div onClick={() => setOpenModal(!openModal)}>
